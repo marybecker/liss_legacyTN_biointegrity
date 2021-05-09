@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TN Legacy Biointegrity</title>
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/slate/bootstrap.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- loads our index.css-->
+</head>
+
+<body>
+<div class="container-fluid">
+    <header class="row bg-dark text-white py-3">
+        <div class="col">
+            <h1>TN Legacy Biointegrity Candidate Sites</h1>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary h4" data-toggle="modal" data-target="#Modal">
+            About
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">TN Legacy Biointegrity Historical Sites</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="images/SageRavine.png" class="img-fluid" alt="Sages Ravine">
+                        <div class="caption">
+                            Sages Ravine, Salisbury CT
+                        </div>
+                        <br>
+                        <p><a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/1051-0761%282006%29016%5B1251%3ATBCGAD%5D2.0.CO%3B2">
+                            The Biological Condition Gradient (BCG)</a> is a conceptual model that describes changes
+                            in aquatic communities and provides a more refined way of assigning stream health than the
+                            traditional pass/fail approach. The additional fine tuning allows us to identify minimally
+                            stressed healthy streams with sensitive taxa found only under least disturbed conditions
+                            (e.g. BCG tiers 1 and 2).  Macroinvertebrate BCG Metrics were calculated for data collected by 
+                            CT DEEP from 1989 - 2019.
+                        </p>
+                        <p>
+                            Diatoms are another diverse biological community that provide a good indication of nutrient conditions
+                            in the stream.  <a href = "https://www.sciencedirect.com/science/article/pii/S1470160X0500110X">
+                            Portapova & Charles (2007) </a> identified benthic diatoms in rivers and streams that were tolerant of 
+                            high total nitrogen (TN) conditions.  The percent of tolerant TN diatom was calculated for diatom 
+                            samples collected by CT DEEP from 2002 - 2019.
+                        </p>
+                            The map identifies the locations and drainage basins of macroinvertebrate and diatom sites
+                            that were observed to 'under perform' for either the BCG or TN Tolerant diatom metric for one or 
+                            more samples given the high percentage of core forest in the drainage basin.
+                            Additional information and the data included in the map can be found
+                            <a href="https://github.com/marybecker/liss_legacyTN_biointegrity">
+                                https://github.com/marybecker/liss_legacyTN_biointegrity</a> and 
+                                <a href = "https://marybecker.github.io/liss_legacyTN_biointegrity/">
+                                    https://marybecker.github.io/liss_legacyTN_biointegrity/</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12 order-md-2 px-0">
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <footer class="row bg-dark text-white py-3">
+            <ul class="list-unstyled">
+                <li> <a href="https://github.com/marybecker/liss_legacyTN_biointegrity">data sources</a> - 
+                     map last updated 9 may 2021</li>
+            </ul>
+    </footer>
+
+    <!--legend is outside of container-fluid and will be dynamically added to map-->
+    <div class="bg-primary py-2 px-3 ml-3 mt-3 text-white" id="legend"></div>
+</div>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS, then leaflet, then simple statistics then your JS! -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+<!-- Load Esri Leaflet from CDN -->
+<script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+        integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+        crossorigin=""></script>
+<!--<script src="https://unpkg.com/simple-statistics@7.0.8/dist/simple-statistics.min.js"></script>-->
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
